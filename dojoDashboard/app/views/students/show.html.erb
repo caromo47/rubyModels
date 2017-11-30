@@ -1,0 +1,19 @@
+<h3><%= @dojo.branch %>'s <%= @student.first_name %> <%= @student.last_name %></h3>
+<p>Email: <%= @student.email %></p>
+<h4>Cohort:</h4>
+<table>
+	<tr>
+		<td>First Name</td>
+		<td>last Name</td>
+		<td>Email</td>
+	</tr>
+	<% @cohort.each do |i| %>
+		<tr>
+			<td><%= i.first_name %></td>
+			<td><%= i.last_name %></td>
+			<td><%= i.email %></td>
+		</tr>
+	<% end %>
+</table>
+
+<%= link_to "Home", "/" %> | <%= link_to "Edit", "#{@student.id}/edit" %>

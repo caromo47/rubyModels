@@ -1,0 +1,22 @@
+<h1><%= @dojo.branch %></h1>
+<p>Address:<%= @dojo.street %></p>
+<p>City: <%= @dojo.city %> State: <%= @dojo.state %></p>
+<%= link_to "Home", "/"%>|<%= link_to "Edit", "/dojos/#{@dojo.id}/edit" %>
+
+<table>
+	<tr>
+		<td>First Name</td>
+		<td>Last Name</td>
+		<td>Email</td>
+		<td>Actions</td>
+	</tr>
+	<% @students.each do |i| %>
+		<tr>
+			<td><%= i.first_name %></td>
+			<td><%= i.last_name %></td>
+			<td><%= i.email %></td>
+			<td><a href="/dojos/<%= @dojo.id %>/students/<%=i.id %>">Show</a><a href="/dojos/<%= @dojo.id %>/students/<%= i.id %>/edit">Edit</a></td>
+		</tr>
+	<% end %>
+</table>
+<%= link_to "Add Student", "/dojos/#{@dojo.id}/students/new" %>

@@ -1,0 +1,26 @@
+<% if flash.key? 'message' %>
+	<fieldset class="green">
+		<p><%= flash[:message] %> </p>
+	</fieldset>
+<% end %>
+<fieldset>
+	<h2>Submitted Information</h2>
+	<table>
+		<tr>
+			<td>Name: </td>
+			<td><%= session[:name]%></td>
+		</tr>
+		<tr>
+			<td>Location: </td>
+			<td><%= session[:location]%></td>
+		</tr>
+		<tr>
+			<td>Language: </td>
+			<td><%= session[:language]%></td>
+		</tr>
+		<tr>
+			<td>Comment: </td>
+			<td><%= session[:comment]%></td>
+		</tr>
+	</table>
+</fieldset>

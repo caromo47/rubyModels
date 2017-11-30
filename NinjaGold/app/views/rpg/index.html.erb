@@ -1,0 +1,54 @@
+<div class="container">
+	<p>Your Gold: <%= @gold %></p>
+	<div class="places">
+		<form class="boxes" action="/process" method="post">
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">​
+			<input type="hidden" name="building" value="farm">
+			<ul>
+				<li>Farm</li>
+				<li>(earns 10-20 gold)</li>
+				<li><input type="submit" value="Find Gold!"></li>
+			</ul>
+		</form>
+		<form class="boxes" action="/process" method="post">
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">​
+			<input type="hidden" name="building" value="cave">
+			<ul>
+				<li>Cave</li>
+				<li>(earns 5-10 gold)</li>
+				<li><input type="submit" value="Find Gold!"></li>
+			</ul>
+		</form>
+		<form class="boxes" action="/process" method="post">
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">​
+			<input type="hidden" name="building" value="house">
+			<ul>
+				<li>House</li>
+				<li>(earns 2-5 gold)</li>
+				<li><input type="submit" value="Find Gold!"></li>
+			</ul>
+		</form>
+		<form class="boxes" action="/process" method="post">
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">​
+			<input type="hidden" name="building" value="casino">
+			<ul>
+				<li>Casino</li>
+				<li>(earns/takes 0-50 gold)</li>
+				<li><input type="submit" value="Find Gold!"></li>
+			</ul>
+		</form>
+	</div>
+	<fieldset>
+		<p>Activities: </p>
+		<div class="activities">
+			<% @activities.reverse.each do |element| %>
+				<% if element.include?("Earned") %>
+					<p class="earned"><%= element %></p>
+				<% else %>
+					<p class="lost"><%= element %></p>
+				<% end %>
+			<% end %>
+		</div>
+	</fieldset>
+
+</div>
